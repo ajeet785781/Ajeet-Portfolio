@@ -1,0 +1,13 @@
+{
+  "name": "ajeet-upadhyay-portfolio",
+  "version": "1.0.0",
+  "description": "Professional engineering + AI/ML + research portfolio website for Ajeet Upadhyay",
+  "scripts": {
+    "client": "npm --prefix client run dev",
+    "server": "npm --prefix server run dev",
+    "build": "npm --prefix client run build",
+    "start": "npm --prefix server start"
+  },
+  "author": "Ajeet Upadhyay",
+  "license": "MIT"
+}

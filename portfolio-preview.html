@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajeet Upadhyay | B.Tech ECE · AI/ML & VLSI Portfolio</title>
+  <meta name="description" content="Portfolio of Ajeet Upadhyay — 2nd Year B.Tech Electronics & Communication Engineering student at RCOEM Nagpur. Exploring AI/ML, Deep Learning, VLSI, Antenna & RF Engineering, Embedded Systems, and Web Development.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- High-tech SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a0d14'/><path d='M16 4 L28 26 L4 26 Z' stroke='%2306b6d4' stroke-width='2' fill='none'/><circle cx='16' cy='16' r='3' fill='%2338bdf8'/><path d='M16 19 L16 26' stroke='%23818cf8' stroke-width='2'/></svg>">
+
+  <style>
+    /* Embedded Design System Tokens */
+    :root {
+      --bg-primary: #07090e;
+      --bg-secondary: #0c101a;
+      --bg-tertiary: #111726;
+      --bg-card: rgba(13, 18, 31, 0.72);
+      --bg-card-hover: rgba(19, 26, 44, 0.85);
+      --border-subtle: rgba(148, 163, 184, 0.12);
+      --border-card: rgba(56, 189, 248, 0.14);
+      --border-card-hover: rgba(56, 189, 248, 0.4);
+      --cyan-bright: #22d3ee;
+      --blue-bright: #60a5fa;
+      --purple-bright: #a78bfa;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --header-height: 72px;
+      --container-max-width: 1200px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--header-height); background-color: var(--bg-primary); color: var(--text-primary); font-family: var(--font-sans); }
+    body { min-height: 100vh; overflow-x: hidden; line-height: 1.6; }
+
+    .bg-grid-pattern {
+      position: fixed; inset: 0;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 65%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 48px 48px, 48px 48px;
+      pointer-events: none; z-index: 0;
+    }
+
+    .container { width: 100%; max-width: var(--container-max-width); margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
+    .section { padding: 6rem 0; position: relative; z-index: 1; }
+    .section-header { text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto; }
+    
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0.9rem;
+      background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.25);
+      border-radius: 9999px; color: var(--cyan-bright); font-family: var(--font-mono);
+      font-size: 0.8rem; font-weight: 500; text-transform: uppercase; margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading); font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 700; color: #ffffff; line-height: 1.2; margin-bottom: 0.75rem;
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 0%, #38bdf8 50%, #818cf8 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .section-subtitle { color: var(--text-secondary); font-size: 1.05rem; }
+
+    .card-glass {
+      background: var(--bg-card); backdrop-filter: blur(16px);
+      border: 1px solid var(--border-card); border-radius: 16px;
+      transition: all 0.28s ease; position: relative; overflow: hidden;
+    }
+    .card-glass:hover {
+      background: var(--bg-card-hover); border-color: var(--border-card-hover);
+      box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.15);
+    }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.3rem 0.7rem;
+      border-radius: 6px; font-size: 0.75rem; font-family: var(--font-mono); font-weight: 500;
+    }
+    .badge-cyan { background: rgba(6, 182, 212, 0.12); color: var(--cyan-bright); border: 1px solid rgba(6, 182, 212, 0.28); }
+    .badge-purple { background: rgba(139, 92, 246, 0.12); color: var(--purple-bright); border: 1px solid rgba(139, 92, 246, 0.28); }
+    .badge-blue { background: rgba(59, 130, 246, 0.12); color: var(--blue-bright); border: 1px solid rgba(59, 130, 246, 0.28); }
+    .badge-amber { background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.28); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+      padding: 0.75rem 1.45rem; border-radius: 10px; font-size: 0.92rem; font-weight: 600;
+      text-decoration: none; cursor: pointer; transition: all 0.28s ease; border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%); color: #ffffff;
+      box-shadow: 0 4px 18px rgba(14, 165, 233, 0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(14, 165, 233, 0.5); }
+    .btn-secondary {
+      background: rgba(15, 23, 42, 0.65); color: #ffffff; border: 1px solid rgba(56, 189, 248, 0.24);
+    }
+    .btn-secondary:hover { background: rgba(30, 41, 59, 0.85); color: var(--cyan-bright); transform: translateY(-2px); }
+
+    /* Navbar */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; height: var(--header-height);
+      background: rgba(7, 9, 14, 0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle); z-index: 100;
+      display: flex; align-items: center;
+    }
+    .nav-container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: #ffffff; }
+    .nav-logo-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(6, 182, 212, 0.15); border: 1px solid var(--cyan-bright); display: flex; align-items: center; justify-content: center; color: var(--cyan-bright); font-weight: 700; font-family: var(--font-mono); }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--cyan-bright); }
+
+    /* Hero */
+    .hero-section { min-height: 100vh; padding-top: calc(var(--header-height) + 2rem); display: flex; align-items: center; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 0.95fr; gap: 3.5rem; align-items: center; width: 100%; }
+    .hero-heading { font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; margin-bottom: 0.75rem; }
+    .hero-tagline { font-family: var(--font-mono); font-size: 1.15rem; color: var(--cyan-bright); margin-bottom: 1.25rem; }
+    .hero-desc { font-size: 1.08rem; color: var(--text-secondary); line-height: 1.65; max-width: 580px; margin-bottom: 2rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+    .hero-canvas-wrap { width: 100%; height: 460px; background: rgba(11, 16, 28, 0.75); border: 1px solid var(--border-card); border-radius: 20px; overflow: hidden; position: relative; }
+    #heroCanvas { width: 100%; height: 100%; display: block; }
+
+    /* About Split */
+    .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2.5rem; }
+    .interests-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .interest-card { padding: 1.25rem; }
+    .interest-title { font-size: 1rem; font-weight: 700; color: #ffffff; margin-bottom: 0.35rem; }
+    .interest-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.45; }
+
+    /* Skills Grid */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+    .skill-card { padding: 1.5rem; }
+    .skill-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .skill-chip { padding: 0.35rem 0.75rem; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.18); border-radius: 6px; font-size: 0.82rem; color: #ffffff; }
+
+    /* Education */
+    .education-timeline { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+    .edu-card { padding: 1.75rem; }
+    .edu-score { font-family: var(--font-mono); font-size: 1.05rem; font-weight: 700; color: var(--cyan-bright); }
+
+    /* Projects */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.75rem; }
+    .proj-card { padding: 1.85rem; display: flex; flex-direction: column; }
+    .proj-title { font-size: 1.2rem; font-weight: 700; color: #ffffff; margin: 0.75rem 0; }
+    .proj-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem; }
+
+    /* Research */
+    .research-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 2.5rem; }
+    .beam-wrap { padding: 1.5rem; }
+    #beamCanvas { width: 100%; height: 320px; background: rgba(9, 13, 22, 0.9); border-radius: 12px; display: block; border: 1px solid var(--border-card); margin-bottom: 1rem; }
+
+    /* Achievements */
+    .achieve-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .achieve-card { padding: 1.75rem; display: flex; flex-direction: column; }
+
+    /* Achievement Thumbnail & Lightbox */
+    .achievement-thumb-box {
+      position: relative;
+      width: 100%;
+      height: 140px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      background: #000000;
+      cursor: pointer;
+      margin-top: 0.75rem;
+      margin-bottom: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    .achievement-thumb-box:hover {
+      border-color: var(--cyan-bright);
+      box-shadow: 0 0 18px rgba(6, 182, 212, 0.35);
+      transform: translateY(-2px);
+    }
+    .achievement-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .achievement-thumb-box:hover .achievement-thumb-img {
+      transform: scale(1.05);
+    }
+    .achievement-thumb-tag {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(7, 10, 18, 0.85);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(6, 182, 212, 0.5);
+      color: var(--cyan-bright);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Certifications Compact Card (Small Size) */
+    .cert-compact-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .cert-compact-card {
+      max-width: 480px;
+      width: 100%;
+      padding: 1.35rem;
+      border-radius: 14px;
+      text-align: left;
+    }
+    .cert-compact-frame {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1.5px solid rgba(56, 189, 248, 0.3);
+      background: #000000;
+      cursor: pointer;
+      margin: 0.85rem 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+    }
+    .cert-compact-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .cert-compact-frame:hover .cert-compact-img {
+      transform: scale(1.04);
+    }
+
+    /* Modal Lightbox */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 13, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-backdrop.active {
+      display: flex;
+    }
+    .modal-card {
+      background: rgba(13, 18, 31, 0.95);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 16px;
+      padding: 1.75rem;
+      max-width: 850px;
+      width: 100%;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    }
+    .doc-lightbox-body {
+      width: 100%;
+      max-height: 70vh;
+      overflow: auto;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background: #000;
+      margin: 1rem 0;
+    }
+    .doc-lightbox-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    .contact-card { padding: 2.25rem; }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 0.75rem 1rem; background: rgba(15, 23, 42, 0.75); border: 1px solid var(--border-subtle); border-radius: 8px; color: #ffffff; margin-bottom: 1rem; outline: none; }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--cyan-bright); }
+
+    /* Footer */
+    footer { background: #05070a; border-top: 1px solid var(--border-subtle); padding: 3.5rem 0 2rem 0; margin-top: 4rem; text-align: center; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .about-grid, .research-grid, .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid-pattern"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="nav-logo">
+        <div class="nav-logo-icon">AU</div>
+        <div>
+          <strong style="display:block; font-size:1.05rem;">Ajeet Upadhyay</strong>
+          <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--cyan-bright);">ECE · AI/ML</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary" style="padding:0.45rem 1rem; font-size:0.85rem;">Let's Connect</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="container hero-grid">
+      <div>
+        <div style="display:flex; gap:0.5rem; margin-bottom:1rem;">
+          <span class="badge badge-cyan">📍 Nagpur, Maharashtra</span>
+          <span class="badge badge-purple">2nd Year B.Tech ECE</span>
+        </div>
+        <h1 class="hero-heading">Hi, I'm <span class="text-gradient">Ajeet Upadhyay</span></h1>
+        <h2 class="hero-tagline">B.Tech ECE Student | AI/ML & VLSI Enthusiast</h2>
+        <p class="hero-desc">Exploring the intersection of electronics, artificial intelligence, deep learning and advanced engineering.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Explore My Work →</a>
+          <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+        </div>
+        <div style="display:flex; gap:1rem; align-items:center;">
+          <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--text-muted);">CONNECT:</span>
+          <a href="https://github.com/ajeet785781" target="_blank" class="badge badge-cyan" style="text-decoration:none;">GitHub</a>
+          <a href="https://linkedin.com/in/ajeet-upadhyay-73478b424" target="_blank" class="badge badge-purple" style="text-decoration:none;">LinkedIn</a>
+          <a href="mailto:ajeetupadhyay639@gmail.com" class="badge badge-blue" style="text-decoration:none;">Email</a>
+        </div>
+      </div>
+      <div class="hero-canvas-wrap">
+        <canvas id="heroCanvas"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Profile Overview</span>
+        <h2 class="section-title">About <span class="text-gradient">Me</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="card-glass" style="padding:2.25rem;">
+          <div style="text-align:center; margin-bottom:1.75rem;">
+            <div style="position:relative; width:210px; height:230px; margin:0 auto 1rem auto; border-radius:18px; overflow:hidden; border:2px solid rgba(56,189,248,0.4); box-shadow:0 0 20px rgba(6,182,212,0.3); background:#000000;">
+              <img src="profile.png" alt="Ajeet Upadhyay" style="width:100%; height:100%; object-fit:cover; display:block;">
+            </div>
+            <div style="display:flex; justify-content:center; gap:0.5rem; flex-wrap:wrap;">
+              <span class="badge badge-cyan">2nd Year B.Tech ECE</span>
+              <span class="badge badge-purple">Nagpur, Maharashtra</span>
+            </div>
+          </div>
+
+          <p style="font-size:1.08rem; color:#e2e8f0; margin-bottom:1.5rem; line-height:1.7;">
+            A B.Tech Electronics & Communication Engineering student at Ramdeobaba College of Engineering and Management, Nagpur, currently in my second year. My interests span Artificial Intelligence, Machine Learning, Deep Learning, VLSI, Antenna/RF Engineering, Embedded Systems, and Web Development.
+          </p>
+          <div style="background:rgba(139,92,246,0.1); border:1px solid rgba(139,92,246,0.3); padding:1rem 1.25rem; border-radius:10px; margin-bottom:1.5rem;">
+            <strong style="color:var(--purple-bright); display:block; font-size:0.95rem; margin-bottom:0.25rem;">Career Direction</strong>
+            <p style="color:var(--text-secondary); font-size:0.92rem;">Interested in research and engineering roles involving electronics, AI/ML and advanced technology.</p>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+            <div style="background:rgba(15,23,42,0.6); padding:0.85rem; border-radius:8px; border:1px solid var(--border-subtle);">
+              <span style="font-size:0.7rem; font-family:var(--font-mono); color:var(--text-muted); display:block;">INSTITUTION</span>
+              <strong style="font-size:0.85rem;">RCOEM, Nagpur</strong>
+            </div>
+            <div style="background:rgba(15,23,42,0.6); padding:0.85rem; border-radius:8px; border:1px solid var(--border-subtle);">
+              <span style="font-size:0.7rem; font-family:var(--font-mono); color:var(--text-muted); display:block;">PUBLICATION GOAL</span>
+              <strong style="font-size:0.85rem;">MAPCON, IIM Nagpur</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="interests-grid">
+          <div class="card-glass interest-card">
+            <span class="badge badge-cyan" style="margin-bottom:0.5rem;">01</span>
+            <h4 class="interest-title">AI / ML</h4>
+            <p class="interest-desc">Machine learning algorithms, predictive modeling, and computational engineering.</p>
+          </div>
+          <div class="card-glass interest-card">
+            <span class="badge badge-purple" style="margin-bottom:0.5rem;">02</span>
+            <h4 class="interest-title">Deep Learning</h4>
+            <p class="interest-desc">Deep neural network models for adaptive spatial optimization and signal estimation.</p>
+          </div>
+          <div class="card-glass interest-card">
+            <span class="badge badge-blue" style="margin-bottom:0.5rem;">03</span>
+            <h4 class="interest-title">VLSI</h4>
+            <p class="interest-desc">Silicon design fundamentals, digital logic synthesis, and hardware description with Verilog.</p>
+          </div>
+          <div class="card-glass interest-card">
+            <span class="badge badge-cyan" style="margin-bottom:0.5rem;">04</span>
+            <h4 class="interest-title">Antenna / RF</h4>
+            <p class="interest-desc">Electromagnetic radiation modeling, planar microstrip antennas, and CST Studio simulations.</p>
+          </div>
+          <div class="card-glass interest-card">
+            <span class="badge badge-amber" style="margin-bottom:0.5rem;">05</span>
+            <h4 class="interest-title">Embedded Systems</h4>
+            <p class="interest-desc">Microcontroller firmware, motor drivers, sensor interfaces, and schematic capture with KiCad.</p>
+          </div>
+          <div class="card-glass interest-card">
+            <span class="badge badge-purple" style="margin-bottom:0.5rem;">06</span>
+            <h4 class="interest-title">Web Development</h4>
+            <p class="interest-desc">Responsive engineering user interfaces, data visualization dashboards, and modern architectures.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Competencies</span>
+        <h2 class="section-title">Categorized <span class="text-gradient">Skills</span></h2>
+        <p class="section-subtitle">Categorized competencies without arbitrary percentage bars.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="card-glass skill-card">
+          <strong style="color:#ffffff; font-size:1.05rem;">Programming</strong>
+          <div class="skill-chips">
+            <span class="skill-chip">C/C++</span><span class="skill-chip">Java</span><span class="skill-chip">Python</span>
+          </div>
+        </div>
+        <div class="card-glass skill-card">
+          <strong style="color:#ffffff; font-size:1.05rem;">Core ECE</strong>
+          <div class="skill-chips">
+            <span class="skill-chip">Electronics & Communication Fundamentals</span><span class="skill-chip">Antenna/RF</span>
+          </div>
+        </div>
+        <div class="card-glass skill-card">
+          <strong style="color:#ffffff; font-size:1.05rem;">AI / ML</strong>
+          <div class="skill-chips">
+            <span class="skill-chip">Artificial Intelligence</span><span class="skill-chip">Machine Learning</span><span class="skill-chip">Deep Learning</span>
+          </div>
+        </div>
+        <div class="card-glass skill-card">
+          <strong style="color:#ffffff; font-size:1.05rem;">Web</strong>
+          <div class="skill-chips">
+            <span class="skill-chip">HTML</span><span class="skill-chip">CSS</span><span class="skill-chip">JavaScript</span>
+          </div>
+        </div>
+        <div class="card-glass skill-card">
+          <strong style="color:#ffffff; font-size:1.05rem;">Development</strong>
+          <div class="skill-chips">
+            <span class="skill-chip">DSA</span><span class="skill-chip">Git/GitHub</span><span class="skill-chip">Linux</span>
+          </div>
+        </div>
+        <div class="card-glass skill-card">
+          <strong style="color:#ffffff; font-size:1.05rem;">Database</strong>
+          <div class="skill-chips">
+            <span class="skill-chip">DBMS</span><span class="skill-chip">SQL</span>
+          </div>
+        </div>
+        <div class="card-glass skill-card" style="grid-column: 1 / -1;">
+          <strong style="color:#ffffff; font-size:1.05rem;">Simulation / Hardware</strong>
+          <div class="skill-chips">
+            <span class="skill-chip">CST Studio Suite</span><span class="skill-chip">Ansoft HFSS</span><span class="skill-chip">MATLAB</span><span class="skill-chip">Verilog</span><span class="skill-chip">PCB/KiCad</span><span class="skill-chip">Embedded/Hardware Projects</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Academic Timeline</span>
+        <h2 class="section-title">Education <span class="text-gradient">Records</span></h2>
+      </div>
+      <div class="education-timeline">
+        <div class="card-glass edu-card">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+            <div>
+              <span class="badge badge-cyan" style="margin-bottom:0.35rem;">Undergraduate</span>
+              <h3 style="font-size:1.2rem; color:#ffffff;">B.Tech – Electronics & Communication Engineering</h3>
+              <p style="color:var(--text-secondary);">Ramdeobaba College of Engineering and Management, Nagpur</p>
+            </div>
+            <span class="badge badge-purple">2nd Year</span>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.85rem;">Currently pursuing core engineering investigations in hardware and AI/ML co-design.</p>
+        </div>
+
+        <div class="card-glass edu-card">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <span class="badge badge-blue" style="margin-bottom:0.35rem;">Senior Secondary</span>
+              <h3 style="font-size:1.1rem; color:#ffffff;">Class 12th Board Examination</h3>
+            </div>
+            <div class="edu-score">87.1%</div>
+          </div>
+        </div>
+
+        <div class="card-glass edu-card">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <span class="badge badge-blue" style="margin-bottom:0.35rem;">Secondary Education</span>
+              <h3 style="font-size:1.1rem; color:#ffffff;">Class 10th Board Examination</h3>
+            </div>
+            <div class="edu-score">83.2%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Featured Work</span>
+        <h2 class="section-title">Engineering <span class="text-gradient">Projects</span></h2>
+      </div>
+      <div class="projects-grid">
+        <div class="card-glass proj-card">
+          <span class="badge badge-cyan">AI/ML + Research + Antenna/RF</span>
+          <h3 class="proj-title">Beam Steering using Deep Learning Algorithm</h3>
+          <p class="proj-desc">Research-oriented project exploring deep learning for beam-steering applications.</p>
+          <div style="display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:auto; margin-bottom:1rem;">
+            <span class="badge badge-blue">Deep Learning</span><span class="badge badge-blue">AI/ML</span><span class="badge badge-blue">Antenna/RF</span>
+          </div>
+          <button class="btn btn-secondary" style="font-size:0.85rem; width:100%; opacity:0.85; cursor:default;">Details Coming Soon</button>
+        </div>
+
+        <div class="card-glass proj-card">
+          <span class="badge badge-purple">AI / Software</span>
+          <h3 class="proj-title">Nirikshak AI</h3>
+          <p class="proj-desc">AI-based concept for assessing and forwarding municipal/public-work and fund-use issues.</p>
+          <div style="display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:auto; margin-bottom:1rem;">
+            <span class="badge badge-blue">AI/ML</span><span class="badge badge-blue">Generative AI</span><span class="badge badge-blue">Software</span>
+          </div>
+          <button class="btn btn-secondary" style="font-size:0.85rem; width:100%; opacity:0.85; cursor:default;">Details Coming Soon</button>
+        </div>
+
+        <div class="card-glass proj-card">
+          <span class="badge badge-cyan">RF / Antenna Engineering</span>
+          <h3 class="proj-title">Microstrip Patch Antenna</h3>
+          <div style="position:relative; width:100%; height:120px; border-radius:8px; overflow:hidden; border:1px solid rgba(56,189,248,0.3); margin-bottom:0.75rem; background:#000;">
+            <img src="hfss-simulation-plot.jpg" alt="HFSS Return Loss Plot" style="width:100%; height:100%; object-fit:cover;">
+            <span style="position:absolute; bottom:6px; right:6px; background:rgba(13,18,31,0.9); font-size:0.68rem; font-family:var(--font-mono); color:var(--cyan-bright); padding:0.15rem 0.45rem; border-radius:4px; border:1px solid var(--cyan-bright);">HFSS S11 Solved (-27.5 dB)</span>
+          </div>
+          <p class="proj-desc">Planar antenna design & Ansoft HFSS return loss simulation achieving -27.5 dB resonance matching.</p>
+          <div style="display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:auto; margin-bottom:1rem;">
+            <span class="badge badge-blue">Ansoft HFSS</span><span class="badge badge-blue">CST Studio</span><span class="badge badge-blue">Antenna/RF</span>
+          </div>
+          <button class="btn btn-secondary" style="font-size:0.85rem; width:100%; opacity:0.85; cursor:default;">Details Coming Soon</button>
+        </div>
+
+        <div class="card-glass proj-card">
+          <span class="badge badge-amber">Embedded / Hardware</span>
+          <h3 class="proj-title">Hardware / Embedded Projects</h3>
+          <p class="proj-desc">Practical electronics and embedded simulations involving sensors, motors and motor-driver systems.</p>
+          <div style="display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:auto; margin-bottom:1rem;">
+            <span class="badge badge-blue">Embedded Systems</span><span class="badge badge-blue">Electronics</span><span class="badge badge-blue">Wokwi</span><span class="badge badge-blue">KiCad</span>
+          </div>
+          <button class="btn btn-secondary" style="font-size:0.85rem; width:100%; opacity:0.85; cursor:default;">Details Coming Soon</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Section -->
+  <section id="research" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Investigation</span>
+        <h2 class="section-title">Research & <span class="text-gradient">Innovation</span></h2>
+      </div>
+      <div class="research-grid">
+        <div class="card-glass" style="padding:2.25rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(6,182,212,0.1); border:1px solid rgba(6,182,212,0.3); padding:0.75rem 1rem; border-radius:8px; margin-bottom:1.25rem;">
+            <span style="font-family:var(--font-mono); font-size:0.8rem; color:var(--cyan-bright);">PUBLICATION GOAL</span>
+            <strong style="color:#ffffff;">MAPCON, IIM Nagpur</strong>
+          </div>
+          <h3 style="font-size:1.4rem; color:#ffffff; margin-bottom:0.75rem;">Beam Steering using Deep Learning Algorithm</h3>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.25rem;">
+            <span class="badge badge-purple">Student Researcher</span>
+            <span class="badge badge-cyan">Guide: Dr. Ankita Harkare</span>
+            <span class="badge badge-blue">Centre for Microsystems</span>
+            <span class="badge badge-amber">In-Progress Activity</span>
+          </div>
+          <div style="background:rgba(6,182,212,0.08); border:1px solid rgba(6,182,212,0.3); padding:0.75rem; border-radius:8px; margin-bottom:1.25rem;">
+            <div style="font-size:0.8rem; font-weight:700; color:var(--cyan-bright); margin-bottom:0.4rem;">Official Research Internship Appointment</div>
+            <img src="research-selection-doc.jpg" alt="Official Selection Document" style="width:100%; border-radius:6px; border:1px solid rgba(255,255,255,0.1);">
+          </div>
+          <p style="font-size:1rem; color:#cbd5e1; font-style:italic; border-left:3px solid var(--cyan-bright); padding-left:1rem; margin-bottom:1.5rem;">
+            "Exploring the application of deep learning techniques to beam-steering problems in antenna and wireless communication systems."
+          </p>
+          <p style="font-size:0.92rem; color:var(--text-secondary); line-height:1.6;">
+            Officially selected for the Part-Time Research Internship under Centre for Microsystems for 'Beam Steering of antenna using ML' guided by Dr. Ankita Harkare.
+          </p>
+        </div>
+
+        <div class="card-glass beam-wrap">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <strong style="font-size:0.9rem; color:#ffffff;">Real-Time Phased Array Simulator</strong>
+            <span class="badge badge-cyan" id="angleDisplay">θ = +25°</span>
+          </div>
+          <canvas id="beamCanvas"></canvas>
+          <div style="display:flex; align-items:center; gap:0.75rem;">
+            <label style="font-size:0.8rem; font-family:var(--font-mono); color:var(--text-muted); white-space:nowrap;">Steer Angle:</label>
+            <input type="range" id="angleSlider" min="-50" max="50" value="25" style="width:100%; cursor:pointer;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section id="achievements" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Milestones</span>
+        <h2 class="section-title">Achievements & <span class="text-gradient">Activities</span></h2>
+        <p class="section-subtitle">Competitive hackathons, innovation ideathons, and research selection milestones.</p>
+      </div>
+      <div class="achieve-grid">
+        <!-- 1. VNIT Hackathon -->
+        <div class="card-glass achieve-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span class="badge badge-purple">Competitive Engineering</span>
+            <span class="badge badge-cyan">Hackathon</span>
+          </div>
+          <h3 style="font-size:1.2rem; color:#ffffff; margin-bottom:0.4rem;">VNIT Hackathon</h3>
+          <div style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.25rem 0.65rem; background:rgba(6,182,212,0.1); border:1px solid rgba(6,182,212,0.25); border-radius:6px; font-size:0.8rem; color:var(--cyan-bright); font-weight:600; margin-bottom:0.75rem; width:fit-content;">
+            ✓ Participation / Wins
+          </div>
+          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.55; margin-bottom:0.5rem;">
+            Competed in high-intensity problem-solving at Visvesvaraya National Institute of Technology (VNIT Nagpur) during AXIS'26 in the AI Ideathon.
+          </p>
+          <div class="achievement-thumb-box" onclick="openDocModal('vnit-axis-certificate.jpg', 'VNIT Hackathon — AXIS\'26 AI Ideathon Certificate', 'Certificate of Participation – AI Ideathon, AXIS\'26 VNIT Nagpur presented to Ajeet Upadhyay.')">
+            <img src="vnit-axis-certificate.jpg" alt="VNIT Certificate" class="achievement-thumb-img">
+            <span class="achievement-thumb-tag">View Certificate</span>
+          </div>
+          <button class="btn btn-secondary" style="font-size:0.82rem; padding:0.45rem 0.85rem; width:fit-content; margin-top:auto;" onclick="openDocModal('vnit-axis-certificate.jpg', 'VNIT Hackathon — AXIS\'26 AI Ideathon Certificate', 'Certificate of Participation – AI Ideathon, AXIS\'26 VNIT Nagpur presented to Ajeet Upadhyay.')">
+            🏆 View Certificate
+          </button>
+        </div>
+
+        <!-- 2. AI Ideathon -->
+        <div class="card-glass achieve-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span class="badge badge-purple">AI Innovation</span>
+            <span class="badge badge-cyan">Ideathon</span>
+          </div>
+          <h3 style="font-size:1.2rem; color:#ffffff; margin-bottom:0.4rem;">AI Ideathon</h3>
+          <div style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.25rem 0.65rem; background:rgba(6,182,212,0.1); border:1px solid rgba(6,182,212,0.25); border-radius:6px; font-size:0.8rem; color:var(--cyan-bright); font-weight:600; margin-bottom:0.75rem; width:fit-content;">
+            ✓ Participation & Achievement
+          </div>
+          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.55;">
+            Demonstrated innovative problem formulation and solution architecture in artificial intelligence competition at AXIS'26, VNIT Nagpur.
+          </p>
+        </div>
+
+        <!-- 3. Centre for Microsystems -->
+        <div class="card-glass achieve-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span class="badge badge-purple">Official Selection</span>
+            <span class="badge badge-cyan">Research Internship</span>
+          </div>
+          <h3 style="font-size:1.2rem; color:#ffffff; margin-bottom:0.4rem;">Centre for Microsystems</h3>
+          <div style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.25rem 0.65rem; background:rgba(6,182,212,0.1); border:1px solid rgba(6,182,212,0.25); border-radius:6px; font-size:0.8rem; color:var(--cyan-bright); font-weight:600; margin-bottom:0.75rem; width:fit-content;">
+            ✓ Selected: Beam Steering
+          </div>
+          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.55; margin-bottom:0.5rem;">
+            Officially selected for Part-Time Research Internship on 'Beam Steering of antenna using ML' guided by Dr. Ankita Harkare.
+          </p>
+          <div class="achievement-thumb-box" onclick="openDocModal('research-selection-doc.jpg', 'Centre for Microsystems Selection Letter', 'Official Selection Letter — Part-Time Research Internship for Beam Steering of antenna using ML.')">
+            <img src="research-selection-doc.jpg" alt="Selection Document" class="achievement-thumb-img">
+            <span class="achievement-thumb-tag">View Selection Letter</span>
+          </div>
+          <button class="btn btn-secondary" style="font-size:0.82rem; padding:0.45rem 0.85rem; width:fit-content; margin-top:auto;" onclick="openDocModal('research-selection-doc.jpg', 'Centre for Microsystems Selection Letter', 'Official Selection Letter — Part-Time Research Internship for Beam Steering of antenna using ML.')">
+            📄 View Selection Letter
+          </button>
+        </div>
+
+        <!-- 4. Smart India Hackathon -->
+        <div class="card-glass achieve-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <span class="badge badge-purple">National Innovation</span>
+            <span class="badge badge-cyan">National Hackathon</span>
+          </div>
+          <h3 style="font-size:1.2rem; color:#ffffff; margin-bottom:0.4rem;">Smart India Hackathon (SIH)</h3>
+          <div style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.25rem 0.65rem; background:rgba(6,182,212,0.1); border:1px solid rgba(6,182,212,0.25); border-radius:6px; font-size:0.8rem; color:var(--cyan-bright); font-weight:600; margin-bottom:0.75rem; width:fit-content;">
+            ✓ Second-round Selection
+          </div>
+          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.55;">
+            Advanced through initial rounds to second-round selection in India's premier nationwide innovation initiative.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="section">
+    <div class="container">
+      <div class="section-header" style="text-align:center;">
+        <span class="section-tag">Credentials</span>
+        <h2 class="section-title">Certifications & <span class="text-gradient">Credentials</span></h2>
+        <p class="section-subtitle">Verified competitive credentials, talent examinations, and engineering coursework.</p>
+      </div>
+
+      <!-- Small & Compact Certificate Card -->
+      <div class="cert-compact-container">
+        <div class="card-glass cert-compact-card">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div style="display:flex; gap:0.45rem; align-items:center;">
+              <span class="badge badge-emerald">🏅 2nd Rank · द्वितीय स्थान</span>
+              <span class="badge badge-cyan">R.N. College</span>
+            </div>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan-bright); font-weight:700;">2024</span>
+          </div>
+
+          <div class="cert-compact-frame" onclick="openDocModal('talent-search-certificate.jpg', 'Block-Level Talent Search Exam 2024 (2nd Rank)', 'प्रखण्ड स्तरीय प्रतिभा खोज प्रतियोगिता परीक्षा - 2024 (प्रशस्ति-पत्र) — Awarded 2nd Rank to Ajeet Upadhyay (अजित उपाध्याय), R.N. College.')">
+            <img src="talent-search-certificate.jpg" alt="Talent Search Certificate" class="cert-compact-img">
+          </div>
+
+          <div>
+            <h3 style="font-size:1.1rem; color:#ffffff; margin-bottom:0.2rem;">Block-Level Talent Search Exam 2024</h3>
+            <p style="font-size:0.82rem; color:var(--cyan-bright); margin-bottom:0.35rem;">प्रखण्ड स्तरीय प्रतिभा खोज प्रतियोगिता परीक्षा - 2024</p>
+            <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.5; margin-bottom:0.5rem;">
+              Secured 2nd Rank (द्वितीय स्थान) in the Block-Level Talent Search Competition Examination 2024 representing R.N. College.
+            </p>
+            <div style="font-size:0.78rem; color:var(--text-muted); border-top:1px solid var(--border-subtle); padding-top:0.45rem;">
+              Recipient: <strong style="color:var(--cyan-bright);">Ajeet Upadhyay (अजित उपाध्याय)</strong> &nbsp;|&nbsp; Date: July 2024
+            </div>
+          </div>
+
+          <button class="btn btn-secondary" style="width:100%; margin-top:0.6rem; padding:0.45rem 1rem; font-size:0.82rem;" onclick="openDocModal('talent-search-certificate.jpg', 'Block-Level Talent Search Exam 2024 (2nd Rank)', 'प्रखण्ड स्तरीय प्रतिभा खोज प्रतियोगिता परीक्षा - 2024 (प्रशस्ति-पत्र) — Awarded 2nd Rank to Ajeet Upadhyay (अजित उपाध्याय), R.N. College.')">
+            🏆 View Full Certificate
+          </button>
+        </div>
+      </div>
+
+      <!-- Future Coursework Notice - Compact -->
+      <div class="card-glass" style="max-width:480px; margin:0 auto; padding:1.25rem 1.5rem; display:flex; align-items:center; gap:1rem; border:1px dashed rgba(245,158,11,0.3); border-radius:12px;">
+        <span style="font-size:1.4rem;">⏳</span>
+        <div style="text-align:left;">
+          <h4 style="font-size:0.88rem; color:#fbbf24; margin-bottom:0.15rem;">Additional Credentials In Progress</h4>
+          <p style="font-size:0.78rem; color:var(--text-secondary); line-height:1.4; margin:0;">
+            Specialized technical credentials in AI/ML, VLSI, and RF antenna engineering are currently in progress.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Document / Certificate Lightbox Modal -->
+  <div id="docModal" class="modal-backdrop" onclick="closeDocModal()">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+        <h3 id="modalDocTitle" style="font-size:1.15rem; color:#ffffff;">Document Viewer</h3>
+        <button onclick="closeDocModal()" style="background:transparent; border:1px solid var(--border-subtle); color:#ffffff; width:32px; height:32px; border-radius:6px; cursor:pointer; font-size:1.1rem;">✕</button>
+      </div>
+      <div class="doc-lightbox-body">
+        <img id="modalDocImg" src="" alt="Document Preview" class="doc-lightbox-img">
+      </div>
+      <p id="modalDocCaption" style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:1rem;"></p>
+      <div style="text-align:right;">
+        <button class="btn btn-primary" onclick="closeDocModal()">Close Viewer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Direct Contact</span>
+        <h2 class="section-title">Let's <span class="text-gradient">Connect</span></h2>
+        <p class="section-subtitle">Interested in technology, research, electronics and AI? Feel free to connect.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="card-glass contact-card">
+          <h3 style="font-size:1.25rem; color:#ffffff; margin-bottom:1rem;">Contact Channels</h3>
+          <p style="color:var(--text-secondary); font-size:0.92rem; margin-bottom:1.5rem;">
+            Location: 📍 Nagpur, Maharashtra<br>
+            Email: <a href="mailto:ajeetupadhyay639@gmail.com" style="color:var(--cyan-bright);">ajeetupadhyay639@gmail.com</a><br>
+            GitHub: <a href="https://github.com/ajeet785781" target="_blank" style="color:var(--cyan-bright);">github.com/ajeet785781</a><br>
+            LinkedIn: <a href="https://linkedin.com/in/ajeet-upadhyay-73478b424" target="_blank" style="color:var(--cyan-bright);">linkedin.com/in/ajeet-upadhyay-73478b424</a>
+          </p>
+          <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+            <a href="mailto:ajeetupadhyay639@gmail.com" class="btn btn-primary">Email Me</a>
+            <a href="https://github.com/ajeet785781" target="_blank" class="btn btn-secondary">GitHub</a>
+            <a href="https://linkedin.com/in/ajeet-upadhyay-73478b424" target="_blank" class="btn btn-secondary">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="card-glass contact-card">
+          <h3 style="font-size:1.25rem; color:#ffffff; margin-bottom:1rem;">Send a Message</h3>
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Your message has been received.'); this.reset();">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email Address" required>
+            <input type="text" placeholder="Subject">
+            <textarea rows="4" placeholder="Your Message..." required></textarea>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Transmit Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <h4 style="color:#ffffff; font-size:1.15rem; margin-bottom:0.25rem;">Ajeet Upadhyay</h4>
+      <p style="color:var(--cyan-bright); font-family:var(--font-mono); font-size:0.85rem; margin-bottom:1rem;">B.Tech ECE Student | AI/ML & VLSI Enthusiast</p>
+      <p style="color:var(--text-muted); font-size:0.82rem;">© 2026 Ajeet Upadhyay. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts (Hero Canvas & Beam Steering Simulator) -->
+  <script>
+    // Hero Interactive Canvas
+    (function() {
+      const canvas = document.getElementById('heroCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = canvas.parentElement.clientWidth || 400;
+      let h = canvas.height = canvas.parentElement.clientHeight || 460;
+
+      const nodes = Array.from({ length: 22 }, () => ({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.8, vy: (Math.random() - 0.5) * 0.8,
+        r: Math.random() * 2.5 + 2
+      }));
+
+      let time = 0;
+      function loop() {
+        time += 0.02;
+        ctx.clearRect(0, 0, w, h);
+
+        // Connections
+        for (let i = 0; i < nodes.length; i++) {
+          nodes[i].x += nodes[i].vx; nodes[i].y += nodes[i].vy;
+          if (nodes[i].x < 10 || nodes[i].x > w - 10) nodes[i].vx *= -1;
+          if (nodes[i].y < 10 || nodes[i].y > h - 10) nodes[i].vy *= -1;
+
+          for (let j = i + 1; j < nodes.length; j++) {
+            const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 100) {
+              ctx.strokeStyle = `rgba(56, 189, 248, ${0.35 * (1 - dist / 100)})`;
+              ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); ctx.stroke();
+            }
+          }
+          ctx.fillStyle = '#06b6d4';
+          ctx.beginPath(); ctx.arc(nodes[i].x, nodes[i].y, nodes[i].r, 0, Math.PI * 2); ctx.fill();
+        }
+
+        // RF waves
+        const cx = w * 0.5, cy = h * 0.5;
+        for (let r = 0; r < 4; r++) {
+          const rad = ((time * 25 + r * 45) % 180);
+          ctx.strokeStyle = `rgba(6, 182, 212, ${0.4 * (1 - rad / 180)})`;
+          ctx.beginPath(); ctx.arc(cx, cy, rad, 0, Math.PI * 2); ctx.stroke();
+        }
+        requestAnimationFrame(loop);
+      }
+      loop();
+    })();
+
+    // Beam Steering Simulator
+    (function() {
+      const canvas = document.getElementById('beamCanvas');
+      const slider = document.getElementById('angleSlider');
+      const display = document.getElementById('angleDisplay');
+      if (!canvas || !slider) return;
+      const ctx = canvas.getContext('2d');
+
+      function drawBeam() {
+        const w = canvas.width = canvas.parentElement.clientWidth || 360;
+        const h = canvas.height = 320;
+        const angle = Number(slider.value);
+        display.textContent = 'θ = ' + (angle > 0 ? '+' : '') + angle + '°';
+
+        ctx.clearRect(0, 0, w, h);
+        const ox = w / 2, oy = h - 40;
+
+        // Polar grids
+        ctx.strokeStyle = 'rgba(56, 189, 248, 0.15)';
+        [50, 100, 150, 200].forEach(r => {
+          ctx.beginPath(); ctx.arc(ox, oy, r, Math.PI, 0); ctx.stroke();
+        });
+
+        const targetRad = ((angle - 90) * Math.PI) / 180;
+        const targetTheta = (angle * Math.PI) / 180;
+        const N = 8;
+
+        ctx.beginPath(); ctx.moveTo(ox, oy);
+        for (let deg = -85; deg <= 85; deg += 1) {
+          const theta = (deg * Math.PI) / 180;
+          const psi = Math.PI * (Math.sin(theta) - Math.sin(targetTheta));
+          const af = Math.abs(psi) < 1e-5 ? 1 : Math.abs(Math.sin((N * psi) / 2) / (N * Math.sin(psi / 2)));
+          const rad = ((deg - 90) * Math.PI) / 180;
+          const r = 20 + af * 180;
+          ctx.lineTo(ox + Math.cos(rad) * r, oy + Math.sin(rad) * r);
+        }
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(6, 182, 212, 0.35)';
+        ctx.fill();
+        ctx.strokeStyle = '#22d3ee';
+        ctx.stroke();
+
+        // 8 antenna elements
+        const startX = ox - 70;
+        for (let i = 0; i < 8; i++) {
+          ctx.fillStyle = '#06b6d4';
+          ctx.fillRect(startX + i * 20 - 4, oy + 5, 8, 12);
+        }
+      }
+
+      slider.addEventListener('input', drawBeam);
+      drawBeam();
+    })();
+
+    // Document & Certificate Lightbox Functions
+    function openDocModal(imgSrc, title, caption) {
+      const modal = document.getElementById('docModal');
+      const img = document.getElementById('modalDocImg');
+      const titleEl = document.getElementById('modalDocTitle');
+      const capEl = document.getElementById('modalDocCaption');
+      if (!modal || !img) return;
+      img.src = imgSrc;
+      if (titleEl) titleEl.textContent = title;
+      if (capEl) capEl.textContent = caption;
+      modal.classList.add('active');
+    }
+
+    function closeDocModal() {
+      const modal = document.getElementById('docModal');
+      if (modal) modal.classList.remove('active');
+    }
+  </script>
+</body>
+</html>
