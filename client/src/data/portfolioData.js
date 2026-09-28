@@ -137,22 +137,18 @@ export const educationData = [
     level: "Higher Secondary (Class XII)",
     institution: "Senior Secondary Education",
     degree: "Class 12th Board Examination",
-    score: "87.1%",
     period: "Completed",
     highlights: [
       "Strong foundation in Physics, Chemistry & Mathematics",
-      "Academic score: 87.1%"
     ]
   },
   {
     level: "Secondary School (Class X)",
     institution: "Secondary Education",
     degree: "Class 10th Board Examination",
-    score: "83.2%",
     period: "Completed",
     highlights: [
       "Foundational science and analytical coursework",
-      "Academic score: 83.2%"
     ]
   }
 ];
