@@ -159,6 +159,7 @@ if (fs.existsSync(distPath)) {
   });
 }
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Portfolio backend server running on port ${PORT}`);
+app.listen(PORT, () => {
+  console.log(`🚀 Portfolio backend server running on http://localhost:${PORT}`);
 });
+

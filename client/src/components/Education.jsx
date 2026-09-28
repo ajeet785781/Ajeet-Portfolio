@@ -54,7 +54,7 @@ export default function Education() {
                 </div>
 
                 {/* Score badge if available (12th / 10th) */}
-                {item.score && (
+                {item.score && item.level !== '10th' && item.level !== '12th' && (
                   <div className="academic-score-banner">
                     <span className="score-label">Board Examination Result</span>
                     <span className="score-value">{item.score}</span>

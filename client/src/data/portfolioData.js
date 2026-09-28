@@ -18,6 +18,17 @@ export const personalInfo = {
   }
 };
 
+
+
+// New technical interests for separate Technical Interests section
+export const technicalInterests = [
+  { title: "Electronics & Embedded Systems", icon: "CircuitBoard", description: "Design and prototype hardware, microcontrollers, and sensor integrations." },
+  { title: "VLSI", icon: "Layers", description: "Digital logic design, Verilog, and silicon chip development." },
+  { title: "AI/ML", icon: "Brain", description: "Machine learning models, deep learning research, and intelligent systems." },
+  { title: "IoT", icon: "Cpu", description: "Connected devices, networking protocols, and cloud integration." },
+  { title: "Antenna & RF", icon: "Radio", description: "RF circuit design, antenna synthesis, and beamforming." },
+  { title: "PCB Design", icon: "Cpu", description: "Schematic capture, board layout, and manufacturing workflows." }
+];
 export const areasOfInterest = [
   {
     title: "AI / ML",
@@ -126,18 +137,22 @@ export const educationData = [
     level: "Higher Secondary (Class XII)",
     institution: "Senior Secondary Education",
     degree: "Class 12th Board Examination",
+    score: "87.1%",
     period: "Completed",
     highlights: [
       "Strong foundation in Physics, Chemistry & Mathematics",
+      "Academic score: 87.1%"
     ]
   },
   {
     level: "Secondary School (Class X)",
     institution: "Secondary Education",
     degree: "Class 10th Board Examination",
+    score: "83.2%",
     period: "Completed",
     highlights: [
       "Foundational science and analytical coursework",
+      "Academic score: 83.2%"
     ]
   }
 ];
@@ -170,6 +185,7 @@ export const projectsData = [
     title: "Nirikshak AI",
     category: "AI / Software",
     badge: "AI Concept",
+    trophyImage: "/trophy.jpg",
     shortDescription:
       "AI-based concept for assessing and forwarding municipal/public-work and fund-use issues.",
     fullDescription:
@@ -300,5 +316,47 @@ export const certificationsData = [
     image: "/talent-search-certificate.jpg",
     description:
       "Secured 2nd Rank (द्वितीय स्थान) in the Block-Level Talent Search Competition Examination 2024 representing R.N. College."
+  }
+];
+
+// ----- New Data for Extended Sections -----
+
+export const beyondAcademics = [
+  {
+    id: "cricket",
+    title: "🏏 Cricket — Pace Bowler",
+    category: "Sports",
+    description: "District-Level Player. Passionate about competitive cricket, fitness and fast bowling.",
+    media: {
+      photos: [
+        "/images/cricket/photo1.jpg",
+        "/images/cricket/photo2.jpg"
+      ],
+      videos: []
+    }
+  },
+  {
+    id: "technical-club",
+    title: "⚡ Electronics — Technical Club",
+    category: "Club",
+    description: "Working on electronics, embedded systems, hardware prototyping and IoT-based projects.",
+    media: {
+      photos: [
+        "/images/technical-club/photo1.jpg"
+      ],
+      videos: []
+    }
+  },
+  {
+    id: "gyanodaya",
+    title: "🚀 Gyanodaya",
+    category: "Event",
+    description: "Knowledge‑sharing sessions and workshops.",
+    media: {
+      photos: [],
+      videos: [
+        "/videos/gyanodaya/Video.mp4"
+      ]
+    }
   }
 ];

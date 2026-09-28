@@ -90,6 +90,14 @@ export default function Projects() {
                     </div>
                   )}
 
+                  {/* Trophy / Award preview thumbnail if available */}
+                  {project.trophyImage && (
+                    <div className="project-sim-thumbnail" onClick={() => setSelectedProject(project)}>
+                      <img src={project.trophyImage} alt="Award & Recognition Trophy" className="sim-thumb-img" />
+                      <span className="sim-thumb-badge">Award & Trophy</span>
+                    </div>
+                  )}
+
                   {/* Technology Badges */}
                   <div className="project-tech-stack">
                     {project.technologies.map((tech, tIdx) => (

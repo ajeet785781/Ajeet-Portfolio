@@ -4,12 +4,15 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+// import AboutMe from './components/AboutMe';
 import Skills from './components/Skills';
+import TechnicalInterests from './components/TechnicalInterests';
 import Education from './components/Education';
 import Projects from './components/Projects';
 import Research from './components/Research';
 import Achievements from './components/Achievements';
 import Certifications from './components/Certifications';
+import BeyondAcademics from './components/BeyondAcademics';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -35,6 +38,8 @@ export default function App() {
 
         {/* 5. Education */}
         <Education />
+        {/* Beyond Academics */}
+        <BeyondAcademics />
 
         {/* 6. Projects */}
         <Projects />

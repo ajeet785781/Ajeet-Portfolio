@@ -82,6 +82,27 @@ export default function ProjectModal({ project, onClose }) {
             </div>
           )}
 
+          {/* Trophy & Award Image if available */}
+          {project.trophyImage && (
+            <div className="modal-section modal-simulation-box">
+              <div className="simulation-preview-header">
+                <span className="badge badge-purple">Award & Recognition</span>
+                <span className="sim-metric-tag">{project.badge || 'Trophy'}</span>
+              </div>
+              <div className="simulation-image-frame" style={{ maxHeight: '360px', overflowY: 'auto' }}>
+                <img
+                  src={project.trophyImage}
+                  alt="Award & Recognition Trophy"
+                  className="modal-simulation-img"
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                />
+              </div>
+              <p className="simulation-caption">
+                Competition Recognition Trophy and Memento.
+              </p>
+            </div>
+          )}
+
           <div className="modal-section">
             <h4 className="modal-subtitle">Project Architecture & Overview</h4>
             <p className="modal-desc">{project.fullDescription}</p>
